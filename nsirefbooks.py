@@ -173,7 +173,7 @@ def compare_ref_books_names(elements, key_code=None, key_name=None):
         if not found:
             print(f'Нет record c ключом {el.code}, codeSystem: {el.codeSystem}, version: {el.codeSystemVersion}')
         elif not found_matching:
-            print(*ans)
+            print(*ans, sep='\n\n')
 
         print('-' * 202 + '\n\n\n')
 

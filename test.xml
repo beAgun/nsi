@@ -1,0 +1,341 @@
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 Infrastructure/CDA.xsd">
+  <realmCode code="RU"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="1.2.643.5.1.13.2.7.5.1.6.3"/>
+  <id root="1.2.643.5.1.13.13.12.2.23.1851.100.1.1.51" extension="264445024083159151387"/>
+  <code code="6" codeSystem="1.2.643.5.1.13.13.99.2.195" codeSystemVersion="7.30" codeSystemName="Виды медицинской документации" displayName="Протокол инструментального исследования"/>
+  <title>Протокол инструментального исследования</title>
+  <effectiveTime value="202406070000+0300"/>
+  <confidentialityCode code="N" codeSystem="1.2.643.5.1.13.13.11.1116" codeSystemVersion="1.1" codeSystemName="Уровень конфиденциальности медицинского документа" displayName="обычный"/>
+  <languageCode code="ru-RU"/>
+  <setId root="1.2.643.5.1.13.13.12.2.23.1851.100.1.1.50" extension="264445024083159151387"/>
+  <versionNumber value="1"/>
+  <recordTarget>
+    <patientRole>
+      <id root="1.2.643.5.1.13.13.12.2.23.1851.100.1.1.10" extension="590092bd-eaf1-4be4-b4a4-394bcfb1479c"/>
+      <id root="1.2.643.100.3" extension="02019817520"/>
+      <id root="1.2.643.5.1.13.13.11.1011.1" extension="0306 215262" assigningAuthorityName="Лазаревским РОВД г Сочи"/>
+      <addr use="H">
+        <streetAddressLine>Краснодарский край, Сочи г, Лучезарная ул, д.5, кв.10</streetAddressLine>
+        <state>23</state>
+      </addr>
+      <addr use="HP">
+        <streetAddressLine>Краснодарский край, Сочи г, Лучезарная ул, д.5, кв.10</streetAddressLine>
+        <state>23</state>
+      </addr>
+      <telecom nullFlavor="NI"/>
+      <patient>
+        <name>
+          <family>Варельжан</family>
+          <given>Гасмик</given>
+          <given>Борисовна</given>
+        </name>
+        <administrativeGenderCode code="2" codeSystem="1.2.643.5.1.13.2.1.1.156" codeSystemVersion="2.1" codeSystemName="Классификатор половой принадлежности" displayName="Женский"/>
+        <birthTime value="19620103"/>
+      </patient>
+      <providerOrganization>
+        <id root="1.2.643.5.1.13.13.12.2.23.1851" extension="1.2.643.5.1.13.13.12.2.23.1851.0.191941"/>
+        <name>ГБУЗ  "ГБ №4 г.Сочи" МЗ КК</name>
+        <telecom value="88622614788"/>
+        <addr>
+          <streetAddressLine>г.Сочи, ул.Туапсинская, 1</streetAddressLine>
+          <state>23</state>
+        </addr>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <functionCode code="33" codeSystem="1.2.643.5.1.13.13.11.1066" codeSystemVersion="5.4" codeSystemName="Номенклатура специальностей специалистов со средним, высшим и послевузовским медицинским и фармацевтическим образованием в сфере здравоохранения" displayName="Ультразвуковая диагностика"/>
+    <time value="202406070000+0300"/>
+    <assignedAuthor>
+      <id root="1.2.643.5.1.13.13.12.2.23.1851.100.1.1.70" extension="164"/>
+      <id root="1.2.643.100.3" extension="03117156810"/>
+      <code code="116" codeSystem="1.2.643.5.1.13.13.11.1002" codeSystemVersion="9.8" codeSystemName="Номенклатура должностей медицинских работников и фармацевтических работников" displayName="Врач ультразвуковой диагностики"/>
+      <telecom nullFlavor="NI"/>
+      <assignedPerson>
+        <name>
+          <family>Колычева</family>
+          <given>Мария</given>
+          <given>Евгеньевна</given>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.643.5.1.13.13.12.2.23.1851"/>
+        <name>ГБУЗ  "ГБ №4 г.Сочи" МЗ КК</name>
+        <telecom value="88622614788"/>
+        <addr>
+          <streetAddressLine>г.Сочи, ул.Туапсинская, 1</streetAddressLine>
+          <state>23</state>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="1.2.643.5.1.13.13.12.2.23.1851"/>
+        <name>ГБУЗ  "ГБ №4 г.Сочи" МЗ КК</name>
+        <telecom value="88622614788"/>
+        <addr>
+          <streetAddressLine>г.Сочи, ул.Туапсинская, 1</streetAddressLine>
+          <state>23</state>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <informationRecipient>
+    <intendedRecipient>
+      <receivedOrganization>
+        <id root="1.2.643.5.1.13"/>
+        <name>Министерство здравоохранения Российской Федерации (ИЭМК)</name>
+      </receivedOrganization>
+    </intendedRecipient>
+  </informationRecipient>
+  <legalAuthenticator>
+    <time value="202406070000+0300"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <id root="1.2.643.5.1.13.13.12.2.23.1851.100.1.1.70" extension="164"/>
+      <id root="1.2.643.100.3" extension="03117156810"/>
+      <code code="116" codeSystem="1.2.643.5.1.13.13.11.1002" codeSystemVersion="9.8" codeSystemName="Номенклатура должностей медицинских работников и фармацевтических работников" displayName="Врач ультразвуковой диагностики"/>
+      <assignedPerson>
+        <name>
+          <family>Колычева</family>
+          <given>Мария</given>
+          <given>Евгеньевна</given>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.643.5.1.13.13.12.2.23.1851"/>
+        <name>ГБУЗ  "ГБ №4 г.Сочи" МЗ КК</name>
+        <telecom value="88622614788"/>
+        <addr>
+          <streetAddressLine>г.Сочи, ул.Туапсинская, 1</streetAddressLine>
+          <state>23</state>
+        </addr>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  <participant typeCode="HLD">
+    <associatedEntity classCode="POLHOLD">
+      <id root="1.2.643.5.1.13.2.7.100.2" extension="2358730896001217"/>
+      <code code="SELF" codeSystem="2.16.840.1.113883.5.111"/>
+      <scopingOrganization>
+        <id root="1.2.643.5.1.13.2.1.1.635" extension="23207"/>
+        <name>КРАСНОДАРСКИЙ ФИЛИАЛ ОБЩЕСТВА С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "АЛЬФАСТРАХОВАНИЕ-ОМС"</name>
+        <telecom nullFlavor="NI"/>
+        <addr>
+          <streetAddressLine>Г.КРАСНОДАР, УЛ.ОДЕССКАЯ, Д.48</streetAddressLine>
+          <state>23</state>
+        </addr>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <inFulfillmentOf>
+    <order>
+      <id root="1.2.643.5.1.13.13.12.2.23.1851.100.1.1.59" extension="-"/>
+    </order>
+  </inFulfillmentOf>
+  <documentationOf>
+    <serviceEvent>
+      <code code="3" codeSystem="1.2.643.5.1.13.13.11.1472" codeSystemVersion="1.1" codeSystemName="Методы инструментальных исследований" displayName="Ультразвуковая диагностика"/>
+      <effectiveTime>
+        <low value="202406071003+0300"/>
+        <high value="202406070000+0300"/>
+      </effectiveTime>
+      <performer typeCode="PPRF">
+        <assignedEntity>
+          <id root="1.2.643.5.1.13.13.12.2.23.1851.100.1.1.70" extension="164"/>
+          <id root="1.2.643.100.3" extension="03117156810"/>
+          <code code="116" displayName="врач ультразвуковой диагностики" codeSystem="1.2.643.5.1.13.13.11.1002" codeSystemVersion="9.8" codeSystemName="Номенклатура должностей медицинских работников и фармацевтических работников"/>
+          <assignedPerson>
+            <name>
+              <family>Колычева</family>
+              <given>Мария</given>
+              <given>Евгеньевна</given>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.643.5.1.13.13.12.2.23.1851"/>
+            <name>ГБУЗ  "ГБ №4 г.Сочи" МЗ КК</name>
+            <addr>
+              <streetAddressLine>г.Сочи, ул.Туапсинская, 1</streetAddressLine>
+              <postalCode nullFlavor="NI"/>
+              <state>23</state>
+            </addr>
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <componentOf>
+    <encompassingEncounter>
+      <id root="1.2.643.5.1.13.13.12.2.23.1851.100.1.1.15" extension="2644450"/>
+      <effectiveTime>
+        <low value="202406050934+0300"/>
+      </effectiveTime>
+      <dischargeDispositionCode nullFlavor="NI"/>
+      <location>
+        <healthCareFacility>
+          <id nullFlavor="UNK"/>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <code code="DOCINFO" codeSystem="1.2.643.5.1.13.13.11.1379" codeSystemVersion="1.1" codeSystemName="Секции CDA документов" displayName="Сведения о документе"/>
+          <title>ОБЩИЕ СВЕДЕНИЯ</title>
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <content>Выполнено по направлению</content>
+                  </td>
+                  <td>
+                    <content ID="DOC_0">Колычева Мария Евгеньевна, Ультразвуковая диагностика, ГБУЗ  "ГБ №4 г.Сочи" МЗ КК, Отделение функциональной диагностики и УЗИ</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content>Обращение</content>
+                  </td>
+                  <td>
+                    <content ID="DOC_1">Первичный</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content>Дата проведения</content>
+                  </td>
+                  <td>
+                    <content ID="DOC_4"></content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content>Место проведения</content>
+                  </td>
+                  <td>
+                    <content ID="DOC_2">Стационар </content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content>Диагноз</content>
+                  </td>
+                  <td>
+                    <content ID="DOC_5">Остеохондроз позвоночника у взрослых</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content>Исследование</content>
+                  </td>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code code="800" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.4" codeSystemName="Кодируемые поля CDA документов" displayName="Обращение"/>
+              <value code="1" codeSystem="1.2.643.5.1.13.13.11.1007" codeSystemVersion="2.1" codeSystemName="Порядок случаев госпитализации или обращения" xsi:type="CD" displayName="Первичный">
+                <originalText>
+                  <reference value="#DOC_1"/>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code code="801" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.4" codeSystemName="Кодируемые поля CDA документов" displayName="Место проведения"/>
+              <value code="7" codeSystem="1.2.643.5.1.13.13.11.1008" codeSystemVersion="4.2" codeSystemName="Место оказания медицинской помощи" xsi:type="CD" displayName="Стационар ">
+                <originalText>
+                  <reference value="#DOC_2"/>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code code="838" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.4" codeSystemName="Кодируемые поля CDA документов" displayName="Диагноз"/>
+              <text>Остеохондроз позвоночника у взрослых</text>
+              <value code="M42.1" codeSystem="1.2.643.5.1.13.13.11.1005" codeSystemVersion="2.24" codeSystemName="Справочник международной классификации болезней и состояний, связанных со здоровьем, десятого пересмотра, версии 4 (МКБ-10)" xsi:type="CD" displayName="Остеохондроз позвоночника у взрослых">
+                <originalText>
+                  <reference value="#DOC_5"/>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <code code="RESINFO" codeSystem="1.2.643.5.1.13.13.99.2.197" codeSystemVersion="1.20" codeSystemName="Секции CDA документов" displayName="Заключение"/>
+          <title>РЕЗУЛЬТАТ ИССЛЕДОВАНИЯ</title>
+          <text styleCode="section_RESINFO">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <content>Протокол</content>
+                  </td>
+                  <td>
+                    <content ID="RES_1">бн</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content>Заключение</content>
+                  </td>
+                  <td>
+                    <content ID="RES_2">Уплотнение стенок аорты и створок клапанов, вкрапления кальция в створках АК и МК. Диастолическая дисфункция ЛЖ 1 степени. УЗИ плевральных полостей: Плевральные синусы свободны с обеих сторон.</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content>Рекомендации</content>
+                  </td>
+                  <td>
+                    <content ID="RES_3">-</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code code="1805" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.4" codeSystemName="Кодируемые поля CDA документов" displayName="Протокол инструментального исследования"/>
+              <text>
+                <reference value="#RES_1"/>
+              </text>
+              <value xsi:type="ST">бн</value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code code="1806" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.4" codeSystemName="Кодируемые поля CDA документов" displayName="Заключение инструментального исследования"/>
+              <text>
+                <reference value="#RES_2"/>
+              </text>
+              <value xsi:type="ST">Уплотнение стенок аорты и створок клапанов, вкрапления кальция в створках АК и МК. Диастолическая дисфункция ЛЖ 1 степени. УЗИ плевральных полостей: Плевральные синусы свободны с обеих сторон.</value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code code="807" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.4" codeSystemName="Кодируемые поля CDA документов" displayName="Рекомендации"/>
+              <text>
+                <reference value="#RES_3"/>
+              </text>
+              <value xsi:type="ST">-</value>
+            </observation>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>
