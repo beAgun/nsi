@@ -136,6 +136,7 @@ def get_parent_map(tree):
 def compare_ref_books_names(elements, key_code=None, key_name=None):
 
     cnt_right = 0
+    cnt_found_matching = 0
     i = 0
 
     request_handler = RequestHandler(verify_ssl=False)
@@ -145,40 +146,46 @@ def compare_ref_books_names(elements, key_code=None, key_name=None):
         i += 1
         print('-' * 100 + str(i) + '-' * 100)
 
-        link = nsi_client.get_link_download_reference_book(identifier=el.codeSystem, version=el.codeSystemVersion)
-        if not link:
-            print('-' * 202 + '\n\n\n')
-            continue
-        res = nsi_client.extract_and_load_json(link)
+        add_oids = nsi_client.get_additional_oids(identifier=el.codeSystem)
+        print(add_oids)
 
-        found = 0
-        found_matching = 0
-        ans = []
+        for oid in add_oids:
+            link = nsi_client.get_link_download_reference_book(identifier=oid, version=el.codeSystemVersion)
+            if not link:
+                continue
+            print(f'found {oid}')
+            res = nsi_client.extract_and_load_json(link)
 
-        for record in res.get('records'):
-            if (el.code in map(str, record.values()) or
-                    (el.code in map(str, record.get('data').values()) if record.get('data') else 0)):
-                found = 1
-                if (el.displayName.strip() in record.values() or
-                        (el.displayName in map(str, record.get('data').values()) if record.get('data') else 0)):
-                    cnt_right += 1
-                    # print(f'совпадают имена: \n {el.displayName}')
-                    # print(record)
-                    found_matching = 1
-                else:
-                    ans_record = "\n".join(f'{key}: {val}' for key, val in record.items())
-                    ans_el = "\n".join(f'{key}: {val}' for key, val in el.__dict__.items())
-                    ans += [f'Не совпадают имена:\nrecord:\n{ans_record}\n\nelement:\n{ans_el}\n']
+            found = 0
+            found_matching = 0
+            ans = []
 
-        if not found:
-            print(f'Нет record c ключом {el.code}, codeSystem: {el.codeSystem}, version: {el.codeSystemVersion}')
-        elif not found_matching:
-            print(*ans, sep='\n\n')
+            for record in res.get('records'):
+                if (el.code in map(str, record.values()) or
+                        (el.code in map(str, record.get('data').values()) if record.get('data') else 0)):
+                    found = 1
+                    if (el.displayName.strip() in record.values() or
+                            (el.displayName in map(str, record.get('data').values()) if record.get('data') else 0)):
+                        cnt_right += 1
+                        # print(f'совпадают имена: \n {el.displayName}')
+                        # print(record)
+                        print('*'*50, 'OK', '*'*50)
+                        found_matching = 1
+                        cnt_found_matching += 1
+                    else:
+                        ans_record = "\n".join(f'{key}: {val}' for key, val in record.items())
+                        ans_el = "\n".join(f'{key}: {val}' for key, val in el.__dict__.items())
+                        ans += [f'Не совпадают имена:\nrecord:\n{ans_record}\n\nelement:\n{ans_el}\n']
 
-        print('-' * 202 + '\n\n\n')
+            if not found:
+                print(f'Нет record c ключом {el.code}, codeSystem: {el.codeSystem}, version: {el.codeSystemVersion}')
+            elif not found_matching:
+                print(*ans, sep='\n\n')
+
+        print('-' * 100 + str(i) + '-' * 100 + '\n\n\n')
 
     print(f'Всего элементов с атрибутами (code, codeSystem, codeSystemVersion, displayName) в xml: {len(elements)}, '
-          f'всего правильно указанных атрибутов displayName: {cnt_right}')
+          f'всего правильно указанных атрибутов displayName: {cnt_found_matching}')
 
 
 def get_RefBook_elements_by_attribute(xml_path, attribute):
@@ -205,7 +212,7 @@ if __name__ == "__main__":
     t0 = time.perf_counter()
 
     # задать path
-    elements = get_RefBook_elements_by_attribute(xml_path='/home/vista/MyPycharmProjects/vista_scripts/nsi/test.xml',
+    elements = get_RefBook_elements_by_attribute(xml_path='/home/vista/MyPycharmProjects/vista_scripts/nsi/ep89.xml',
                                                  attribute='codeSystem')
     compare_ref_books_names(elements=elements)
 

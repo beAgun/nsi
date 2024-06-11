@@ -6,6 +6,9 @@ from typing import Generator, Dict, Any, List
 import requests
 import chardet
 import lxml.html
+import re
+
+from utils import CDA
 
 
 class RequestHandler:
@@ -173,6 +176,25 @@ class NSIClient:
                 reference_book["rows"] = self.extract_and_load_json(url)["records"]
             yield reference_books
 
+    def get_additional_oids(self, identifier: str) -> list[str]:
+        response = self.request_handler.get(
+            f"https://nsi.rosminzdrav.ru/_next/data/f4ce7817d5ce49e22e26023344f1d282f212104a/dictionaries.json?page=1&size=20&query={identifier}"
+        )
+        res = response.json()
+        return set([identifier] + res.get('pageProps').get('list')[0].get('additionalOids').split(', ') + res.get('pageProps').get('list')[0].get('oid').split(', '))
+
+    def get_cda(self, code: str) -> list[str]:
+        response = self.request_handler.get(
+            f"https://nsi.rosminzdrav.ru/api/data?identifier=1.2.643.5.1.13.13.99.2.197&version=4.35&query={code}&page=1&size=50&queryCount=true"
+        )
+        res = response.json()
+        if not res:
+            return 'not found'
+        if not res.get('list'):
+            return f"{res.get('list')}"
+        return res.get('list')[0].get('NAME')
+
+
 
 if __name__ == "__main__":
     request_handler = RequestHandler(verify_ssl=False)
@@ -180,6 +202,21 @@ if __name__ == "__main__":
     # g = nsi_client.get_reference_books_with_rows(size=2)
     # res = next(g)
     # print(res)
-    g = nsi_client.get_link_download_reference_book(identifier='1.2.643.5.1.13.13.11.1038', version='16.1')
-    res = nsi_client.extract_and_load_json(g)
-    pprint(res)
+
+    # res = nsi_client.get_additional_oids(identifier='1.2.643.5.1.13.2.1.1.156')
+    # print(res)
+
+
+    # g = nsi_client.get_link_download_reference_book(identifier='1.2.643.5.1.13.13.11.1522', version='7.31')
+    # res = nsi_client.extract_and_load_json(g)
+    # pprint(res)
+
+    d = {key: value for key, value in CDA.__dict__.items() if not key.startswith("_")}
+    # pprint({key: value for key, value in CDA.__dict__.items() if key.startswith("_")})
+
+    for code, val in d.items():
+        cda = nsi_client.get_cda(code)
+        print(f'{code} = {val}')
+        if code and cda and str(val[1]) != str(cda):
+            print(f'---------------------------------------------------------------------------------NOT EQUAL {cda}')
+
