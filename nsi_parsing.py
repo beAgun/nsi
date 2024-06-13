@@ -181,7 +181,14 @@ class NSIClient:
             f"https://nsi.rosminzdrav.ru/_next/data/f4ce7817d5ce49e22e26023344f1d282f212104a/dictionaries.json?page=1&size=20&query={identifier}"
         )
         res = response.json()
-        return set([identifier] + res.get('pageProps').get('list')[0].get('additionalOids').split(', ') + res.get('pageProps').get('list')[0].get('oid').split(', '))
+        add_oids = [identifier]
+        if 'pageProps' in res:
+            for rb in res.get('pageProps').get('list'):
+                if 'additionalOids' in rb:
+                    add_oids += rb.get('additionalOids').split(', ')
+                if 'oid' in rb:
+                    add_oids += rb.get('oid').split(', ')
+        return set(add_oids)
 
     def get_cda(self, code: str) -> list[str]:
         response = self.request_handler.get(
@@ -207,16 +214,23 @@ if __name__ == "__main__":
     # print(res)
 
 
-    # g = nsi_client.get_link_download_reference_book(identifier='1.2.643.5.1.13.13.11.1522', version='7.31')
-    # res = nsi_client.extract_and_load_json(g)
-    # pprint(res)
+    g = nsi_client.get_link_download_reference_book(identifier='1.2.643.5.1.13.13.11.1069', version='4.5')
+    res = nsi_client.extract_and_load_json(g)
+    for el in res.get('records'):
+        code, name = el.get('code'), el.get('name')
+        print(code, name)
+        if el.get('data'):
+            id, name2 = el.get('data').get('ID'), el.get('data').get('NAME')
+            if str(id) != code:
+                print(id)
+            if name2 != name:
+                print(name2)
 
-    d = {key: value for key, value in CDA.__dict__.items() if not key.startswith("_")}
-    # pprint({key: value for key, value in CDA.__dict__.items() if key.startswith("_")})
+    # d = {key: value for key, value in CDA.__dict__.items() if not key.startswith("_")}
 
-    for code, val in d.items():
-        cda = nsi_client.get_cda(code)
-        print(f'{code} = {val}')
-        if code and cda and str(val[1]) != str(cda):
-            print(f'---------------------------------------------------------------------------------NOT EQUAL {cda}')
+    # for code, val in d.items():
+    #     cda = nsi_client.get_cda(code)
+    #     print(f'{code} = {val}')
+    #     if code and cda and str(val[1]) != str(cda):
+    #         print(f'---------------------------------------------------------------------------------NOT EQUAL {cda}')
 

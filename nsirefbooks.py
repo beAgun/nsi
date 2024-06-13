@@ -212,7 +212,7 @@ if __name__ == "__main__":
     t0 = time.perf_counter()
 
     # задать path
-    elements = get_RefBook_elements_by_attribute(xml_path='/home/vista/MyPycharmProjects/vista_scripts/nsi/ep89.xml',
+    elements = get_RefBook_elements_by_attribute(xml_path='/home/vista/MyPycharmProjects/vista_scripts/nsi/semd200b15.xml',
                                                  attribute='codeSystem')
     compare_ref_books_names(elements=elements)
 
